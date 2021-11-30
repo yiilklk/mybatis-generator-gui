@@ -36,7 +36,7 @@ public class DbConnectionController extends BaseFXController {
     protected MainUIController mainUIController;
     protected TabPaneController tabPaneController;
     protected boolean isUpdate = false;
-    protected Integer primayKey;
+    protected Integer primaryKey;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,7 +48,7 @@ public class DbConnectionController extends BaseFXController {
             return;
         }
         try {
-            ConfigHelper.saveDatabaseConfig(this.isUpdate, primayKey, config);
+            ConfigHelper.saveDatabaseConfig(this.isUpdate, primaryKey, config);
             this.tabPaneController.getDialogStage().close();
             mainUIController.loadLeftDBTree();
         } catch (Exception e) {
@@ -93,7 +93,7 @@ public class DbConnectionController extends BaseFXController {
 
     public void setConfig(DatabaseConfig config) {
         isUpdate = true;
-        primayKey = config.getId(); // save id for update config
+        primaryKey = config.getId(); // save id for update config
         nameField.setText(config.getName());
         hostField.setText(config.getHost());
         portField.setText(config.getPort());

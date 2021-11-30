@@ -77,13 +77,13 @@ public class CommonDAOInterfacePlugin extends PluginAdapter {
                 if (modelName.endsWith("DAO")) {
                 }
             }
-            GeneratedJavaFile mapperJavafile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFileEncoding, javaFormatter);
+            GeneratedJavaFile mapperJavaFile = new GeneratedJavaFile(mapperInterface, daoTargetDir, javaFileEncoding, javaFormatter);
             try {
                 File mapperDir = shellCallback.getDirectory(daoTargetDir, daoTargetPackage);
-                File mapperFile = new File(mapperDir, mapperJavafile.getFileName());
+                File mapperFile = new File(mapperDir, mapperJavaFile.getFileName());
                 // 文件不存在
                 if (!mapperFile.exists()) {
-                    mapperJavaFiles.add(mapperJavafile);
+                    mapperJavaFiles.add(mapperJavaFile);
                 }
             } catch (ShellException e) {
                 e.printStackTrace();
